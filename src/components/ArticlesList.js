@@ -21,6 +21,7 @@ function ArticlesList() {
       setArticles((currentArticles) => {
         const filteredArticles = [...currentArticles].filter((article) => {
           if (article.article_id !== trendingArticleId) return article;
+          else return null;
         });
         return filteredArticles
       });
@@ -29,7 +30,7 @@ function ArticlesList() {
 
   return (
     <>
-      <div className="uk-flex uk-flex-column uk-flex-middle ">
+      <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-top">
         <TrendingArticle trendingArticle={trendingArticle} />
 
         {articles.map((article) => {
