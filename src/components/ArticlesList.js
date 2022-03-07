@@ -29,7 +29,7 @@ function ArticlesList() {
 
   return (
     <>
-      <div className="uk-flex uk-flex-column uk-flex-middle">
+      <div className="uk-flex uk-flex-column uk-flex-middle ">
         <TrendingArticle trendingArticle={trendingArticle} />
 
         {articles.map((article) => {
