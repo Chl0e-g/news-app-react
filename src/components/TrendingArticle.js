@@ -8,14 +8,14 @@ function TrendingArticle({ trendingArticle: article }) {
       to={`/articles/${article.article_id}`}
       className="uk-text-decoration-none"
     >
-      <div className="uk-card uk-card-default uk-card-hover uk-margin uk-width-medium uk-width-large@s uk-width-xlarge@m ukwidth2xlarge@l">
+      <div className="uk-card uk-card-default uk-card-hover uk-margin uk-width-medium uk-width-xlarge@s uk-width-2xlarge@m ukwidth-3xlarge@l">
         <div className="uk-card-media-left uk-cover-container">
           <img
             src={`/images/${article.topic}.jpg`}
             alt={article.topic}
             uk-cover="true"
           ></img>
-          <canvas height="180" width="180"></canvas>
+          <canvas ></canvas>
         </div>
         <div className="uk-card-body">
           <span className="uk-card-badge">TRENDING NOW</span>
