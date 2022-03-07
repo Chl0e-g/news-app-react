@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchArticles } from "../api/articles";
 import ArticleListItem from "./ArticleListItem";
+import TrendingArticle from "./TrendingArticle";
 
 function ArticlesList() {
   const [articles, setArticles] = useState([]);
@@ -19,7 +20,7 @@ function ArticlesList() {
   return (
     <>
       <div className="uk-flex uk-flex-column uk-flex-middle">
-        {/* <TrendingArticle trendingArticle={trendingArticle}/> */}
+        <TrendingArticle trendingArticle={trendingArticle}/>
 
         {articles.map((article) => {
           return <ArticleListItem article={article} />;

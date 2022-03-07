@@ -2,8 +2,7 @@ import { formatDate } from "../utils/formatDate";
 import { Link } from "react-router-dom";
 
 function ArticleListItem({ article }) {
-  const date = article.created_at;
-  const formattedDate = formatDate(date);
+  const formattedDate = formatDate(article.created_at);
   return (
     <Link to={`/articles/${article.article_id}`} className="uk-text-decoration-none">
       <div className="uk-card uk-card-default uk-card-hover uk-margin uk-width-medium uk-width-large@s uk-width-xlarge@m ukwidth2xlarge@l">
