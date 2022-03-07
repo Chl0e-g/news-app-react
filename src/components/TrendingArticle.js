@@ -18,8 +18,8 @@ function TrendingArticle({ trendingArticle: article }) {
           <canvas ></canvas>
         </div>
         <div className="uk-card-body">
-          <span className="uk-card-badge">TRENDING NOW</span>
-          <div className="uk-text-meta uk-text-uppercase">{article.topic}</div>
+          <span className="uk-card-badge primary-colour-background">TRENDING NOW</span>
+          <div className="uk-text-meta uk-text-uppercase primary-colour-text">{article.topic}</div>
           <h2 className="uk-card-title uk-margin-small-top uk-margin-remove-bottom">
             {article.title}
           </h2>

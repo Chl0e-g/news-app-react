@@ -26,12 +26,10 @@ function ArticlesNav({ currentTopic, setCurrentTopic }) {
   };
 
   return (
-    <nav className="uk-background-default" uk-sticky="offset: 80">
-      <ul className="uk-subnav uk-subnav-divider uk-text-uppercase uk-margin-large-left">
-        <li className={activeClass('all')}>
-          <Link to="/">
-            all
-          </Link>
+    <nav className="uk-background-default " uk-sticky="offset: 40">
+      <ul className="uk-subnav uk-subnav-divider uk-text-uppercase uk-margin-large-left uk-margin-top">
+        <li className={activeClass("all")}>
+          <Link to="/">all</Link>
         </li>
         {topics.map((topic) => {
           return (
@@ -41,6 +39,7 @@ function ArticlesNav({ currentTopic, setCurrentTopic }) {
           );
         })}
       </ul>
+      <hr className="uk-margin-remove"/>
     </nav>
   );
 }

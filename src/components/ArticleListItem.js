@@ -7,7 +7,7 @@ function ArticleListItem({ article }) {
     <Link to={`/articles/${article.article_id}`} className="uk-text-decoration-none">
       <div className="uk-card uk-card-default uk-card-hover uk-margin uk-width-medium uk-width-xlarge@s uk-width-2xlarge@m ukwidth-3xlarge@l">
         <div className="uk-card-body">
-          <div className="uk-text-meta uk-text-uppercase">{article.topic}</div>
+          <div className="uk-text-meta uk-text-uppercase primary-colour-text">{article.topic}</div>
           <h2 className="uk-card-title uk-margin-small-top uk-margin-remove-bottom">
             {article.title}
           </h2>
