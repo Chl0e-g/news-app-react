@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { fetchArticles } from "../api/articles";
 import ArticleListItem from "./ArticleListItem";
 import TrendingArticle from "./TrendingArticle";
@@ -6,10 +7,11 @@ import TrendingArticle from "./TrendingArticle";
 function ArticlesList() {
   const [articles, setArticles] = useState([]);
   const [trendingArticle, setTrendingArticle] = useState({});
+  const { topic } = useParams()
 
   //fetch article data
   useEffect(() => {
-    fetchArticles().then((articlesData) => {
+    fetchArticles(topic).then((articlesData) => {
       setArticles(articlesData);
 
       //set trending article
@@ -23,14 +25,14 @@ function ArticlesList() {
           if (article.article_id !== trendingArticleId) return article;
           else return null;
         });
-        return filteredArticles
+        return filteredArticles;
       });
     });
-  }, []);
+  }, [topic]);
 
   return (
     <>
-      <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-top">
+      <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-medium-top">
         <TrendingArticle trendingArticle={trendingArticle} />
 
         {articles.map((article) => {
