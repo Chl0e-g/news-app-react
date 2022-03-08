@@ -5,12 +5,14 @@ import ArticleListItem from "./ArticleListItem";
 import TrendingArticle from "./TrendingArticle";
 
 function ArticlesList() {
+  const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   const [trendingArticle, setTrendingArticle] = useState({});
-  const { topic } = useParams()
+  const { topic } = useParams();
 
   //fetch article data
   useEffect(() => {
+    setIsLoading(true);
     fetchArticles(topic).then((articlesData) => {
       setArticles(articlesData);
 
@@ -27,16 +29,17 @@ function ArticlesList() {
         });
         return filteredArticles;
       });
+      setIsLoading(false);
     });
   }, [topic]);
 
-  return (
+  return isLoading ? <div uk-spinner="ratio: 3" className="uk-position-center"></div> : (
     <>
       <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-medium-top">
         <TrendingArticle trendingArticle={trendingArticle} />
 
         {articles.map((article) => {
-          return <ArticleListItem article={article} />;
+          return <ArticleListItem article={article} key={article.article_id} />;
         })}
       </div>
     </>

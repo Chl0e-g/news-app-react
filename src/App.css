@@ -2,11 +2,14 @@
     min-height: 40px;
 }
 
-/* custom primary colour */
+/* custom colours */
 .primary-colour-text {
     color: #f3522a
 }
 .primary-colour-background {
-    color: #F8F8F8;
+    color: #F6F9F1;
     background-color: #f3522a;
+}
+.secondary-colour-background {
+    background-color: #F6F9F1;
 }

@@ -7,8 +7,8 @@ function Articles() {
 
     return (
         <>
-        <ArticlesNav currentTopic={currentTopic} setCurrentTopic={setCurrentTopic}/>
-        <ArticlesList />
+        <ArticlesNav currentTopic={currentTopic} setCurrentTopic={setCurrentTopic} />
+        <ArticlesList/>
         </>
     )
 }

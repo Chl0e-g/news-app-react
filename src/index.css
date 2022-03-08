@@ -3,7 +3,7 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.uk-h1,
+/* custom fonts */
 .uk-h2,
 .uk-h3,
 .uk-h4,
@@ -14,11 +14,13 @@ body {
 .uk-heading-medium,
 .uk-heading-small,
 .uk-heading-xlarge,
-h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: "Lato", sans-serif;
+}
+h1 {
+  font-family: "Marcellus", serif;
 }

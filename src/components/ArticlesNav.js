@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchTopics } from "../api/topics";
 
-function ArticlesNav({ currentTopic, setCurrentTopic }) {
+function ArticlesNav({ currentTopic, setCurrentTopic, setIsLoading }) {
   const [topics, setTopics] = useState([]);
 
   //fetch topics
@@ -28,18 +28,18 @@ function ArticlesNav({ currentTopic, setCurrentTopic }) {
   return (
     <nav className="uk-background-default " uk-sticky="offset: 40">
       <ul className="uk-subnav uk-subnav-divider uk-text-uppercase uk-margin-large-left uk-margin-top">
-        <li className={activeClass("all")}>
+        <li className={activeClass("all")} key="all">
           <Link to="/">all</Link>
         </li>
         {topics.map((topic) => {
           return (
-            <li className={activeClass(topic.slug)}>
+            <li className={activeClass(topic.slug)} key={topic.slug}>
               <Link to={`/topics/${topic.slug}`}>{topic.slug}</Link>
             </li>
           );
         })}
       </ul>
-      <hr className="uk-margin-remove"/>
+      <hr className="uk-margin-remove" />
     </nav>
   );
 }
