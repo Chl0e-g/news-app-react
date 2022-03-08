@@ -4,11 +4,11 @@
 
 /* custom colours */
 .primary-colour-text {
-    color: #f3522a
+    color: #f66539
 }
 .primary-colour-background {
     color: #F6F9F1;
-    background-color: #f3522a;
+    background-color: #f66539;
 }
 .secondary-colour-background {
     background-color: #F6F9F1;
@@ -25,4 +25,14 @@
     height: 40px;
     width: 40px;
     object-fit: fill;
+}
+
+/* custom like button active state */
+.active-button {
+    color: #F6F9F1;
+    background-color: #f66539;
+}
+.active-button:hover {
+    color: #F6F9F1;
+    background-color: #f66539;
 }

@@ -20,3 +20,8 @@ export const fetchArticle = async (articleId) => {
   } = await api.get(`/articles/${articleId}`);
   return article;
 };
+
+export const patchArticleVotes = async (articleId, inc_votes) => {
+  await api.patch(`/articles/${articleId}`, { inc_votes });
+  return;
+};
