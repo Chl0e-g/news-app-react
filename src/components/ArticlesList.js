@@ -34,7 +34,7 @@ function ArticlesList() {
   }, [topic]);
 
   return isLoading ? <div uk-spinner="ratio: 3" className="uk-position-center"></div> : (
-    <>
+    <main>
       <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-medium-top">
         <TrendingArticle trendingArticle={trendingArticle} />
 
@@ -42,7 +42,7 @@ function ArticlesList() {
           return <ArticleListItem article={article} key={article.article_id} />;
         })}
       </div>
-    </>
+    </main>
   );
 }
 
