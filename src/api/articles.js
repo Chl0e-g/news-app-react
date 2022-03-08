@@ -13,3 +13,10 @@ export const fetchArticles = async (topic) => {
     return articles;
   }
 };
+
+export const fetchArticle = async (articleId) => {
+  const {
+    data: { article },
+  } = await api.get(`/articles/${articleId}`);
+  return article;
+};

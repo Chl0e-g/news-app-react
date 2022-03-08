@@ -13,3 +13,16 @@
 .secondary-colour-background {
     background-color: #F6F9F1;
 }
+
+/* custom text size */
+.medium-text {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+/* custom avatar icons */
+.avatar {
+    height: 40px;
+    width: 40px;
+    object-fit: fill;
+}

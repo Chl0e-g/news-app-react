@@ -14,13 +14,14 @@ function ArticlesNav() {
   }, []);
 
   //setting current topic
-  const { topic } = useParams();
+  const { topic, articleId } = useParams();
   useEffect(() => {
     setCurrentTopic(() => {
-      if (!topic) return "all";
+      if (!topic && articleId) return "";
+      if(!topic) return "all"
       return topic;
     });
-  }, [topic]);
+  }, [topic, articleId]);
   
   //adding active styling to nav items
   const activeClass = (current) => {
