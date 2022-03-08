@@ -1,4 +1,4 @@
-import { fetchArticle } from "../api/articles";
+import { fetchArticle, patchArticleVotes } from "../api/articles";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
@@ -9,21 +9,37 @@ function SingleArticle() {
   const [isLoading, setIsLoading] = useState(true);
   const [article, setArticle] = useState({});
   const [author, setAuthor] = useState({});
+  const [numOfLikes, setNumOfLikes] = useState("");
+  const [liked, setLiked] = useState(false);
   const { articleId } = useParams();
   const formattedDate = formatDate(article.created_at);
 
+  //fetch article
   useEffect(() => {
     setIsLoading(true);
     fetchArticle(articleId)
       .then((article) => {
         setArticle(article);
         setIsLoading(false);
+        setNumOfLikes(article.votes);
         return fetchUserByUsername(article.author);
       })
       .then((user) => {
         setAuthor(user);
       });
   }, [articleId]);
+
+  //article like feature
+  const handleClick = () => {
+    const vote = liked ? -1 : 1;
+    setNumOfLikes((currentLikes) => currentLikes + vote);
+    setLiked((currentStatus) => !currentStatus);
+
+    patchArticleVotes(articleId, vote).catch((err) => {
+      setNumOfLikes((currentLikes) => currentLikes - vote);
+      setLiked((currentStatus) => !currentStatus);
+    });
+  };
 
   return (
     <>
@@ -56,7 +72,22 @@ function SingleArticle() {
               {article.body}
             </p>
           </article>
-          <hr className="uk-divider-small uk-margin-medium-top"/>
+          <div className="uk-margin-top">
+            <button
+              className={
+                liked
+                  ? "active-button uk-icon-button primary-colour-text uk-margin-small-right"
+                  : "uk-icon-button primary-colour-text uk-margin-small-right"
+              }
+              uk-icon="heart"
+              uk-tooltip={liked ? "Unlike" : "Like"}
+              onClick={handleClick}
+            ></button>
+            <span className="uk-text-meta uk-text-normal uk-margin-top uk-text-middle">
+              {numOfLikes}
+            </span>
+          </div>
+          <hr className="uk-divider-small uk-margin-medium-top" />
         </main>
       )}
     </>

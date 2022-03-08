@@ -26,3 +26,13 @@
     width: 40px;
     object-fit: fill;
 }
+
+/* custom like button active state */
+.active-button {
+    color: #F6F9F1;
+    background-color: #f3522a;
+}
+.active-button:hover {
+    color: #F6F9F1;
+    background-color: #f3522a;
+}
