@@ -1,4 +1,26 @@
 body {
   margin: 0;
-  
+  font-family: "Lato", sans-serif;
+}
+
+/* custom fonts */
+.uk-h2,
+.uk-h3,
+.uk-h4,
+.uk-h5,
+.uk-h6,
+.uk-heading-2xlarge,
+.uk-heading-large,
+.uk-heading-medium,
+.uk-heading-small,
+.uk-heading-xlarge,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+}
+h1 {
+  font-family: "Marcellus", serif;
 }

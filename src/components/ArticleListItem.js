@@ -7,24 +7,25 @@ function ArticleListItem({ article }) {
     <Link to={`/articles/${article.article_id}`} className="uk-text-decoration-none">
       <div className="uk-card uk-card-default uk-card-hover uk-margin uk-width-medium uk-width-xlarge@s uk-width-2xlarge@m ukwidth-3xlarge@l">
         <div className="uk-card-body">
-          <div className="uk-text-meta uk-text-uppercase">{article.topic}</div>
+          <div className="uk-text-meta uk-text-uppercase primary-colour-text">{article.topic}</div>
           <h2 className="uk-card-title uk-margin-small-top uk-margin-remove-bottom">
             {article.title}
           </h2>
-          <div className="uk-text-meta uk-margin-small-top">
+          <dl>
+          <dt className="uk-text-meta uk-margin-small-top uk-text-normal">
             By {article.author}
-          </div>
-          <div className="uk-text-meta uk-margin-small-top">
+          </dt>
+          <dt className="uk-text-meta uk-margin-small-top uk-text-normal">
             {formattedDate}
-          </div>
-          <div className="uk-flex">
-            <div className="uk-text-meta uk-margin-small-top uk-margin-medium-right">
+          </dt>
+          <dt className="uk-flex">
+            <dt className="uk-text-meta uk-margin-small-top uk-margin-medium-right uk-text-normal">
               <span uk-icon="comments"></span> {article.comment_count}
-            </div>
-            <div className="uk-text-meta uk-margin-small-top">
+            </dt>
+            <dt className="uk-text-meta uk-margin-small-top" uk-text-normal>
               <span uk-icon="heart"></span> {article.votes}
-            </div>
-          </div>
+            </dt>
+          </dt></dl>
         </div>
       </div>
     </Link>

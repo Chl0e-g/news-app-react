@@ -1,0 +1,15 @@
+.uk-navbar-item {
+    min-height: 40px;
+}
+
+/* custom colours */
+.primary-colour-text {
+    color: #f3522a
+}
+.primary-colour-background {
+    color: #F6F9F1;
+    background-color: #f3522a;
+}
+.secondary-colour-background {
+    background-color: #F6F9F1;
+}
