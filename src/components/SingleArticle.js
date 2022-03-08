@@ -34,8 +34,8 @@ function SingleArticle() {
     const vote = liked ? -1 : 1;
     setNumOfLikes((currentLikes) => currentLikes + vote);
     setLiked((currentStatus) => !currentStatus);
-
-    patchArticleVotes(articleId, vote).catch((err) => {
+    //patch article
+    patchArticleVotes(articleId, vote).catch(() => {
       setNumOfLikes((currentLikes) => currentLikes - vote);
       setLiked((currentStatus) => !currentStatus);
     });

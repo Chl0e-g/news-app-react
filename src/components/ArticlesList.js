@@ -18,7 +18,7 @@ function ArticlesList() {
       setArticles(articlesData);
 
       //set trending article
-      articlesData.sort((a, b) => b.comment_count - a.comment_count);
+      articlesData.sort((a, b) => b.votes - a.votes);
       setTrendingArticle(articlesData.at(0));
       const trendingArticleId = articlesData.at(0).article_id;
 
