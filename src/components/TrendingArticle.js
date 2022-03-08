@@ -30,14 +30,14 @@ function TrendingArticle({ trendingArticle: article }) {
           <dt className="uk-text-meta uk-margin-small-top uk-margin-bottom uk-text-normal">
             {formattedDate}
           </dt>
-          <dt className="uk-flex uk-card-footer">
+          <div className="uk-flex uk-card-footer">
             <dt className="uk-text-meta uk-margin-small-top uk-margin-medium-right uk-text-normal">
               <span uk-icon="comments"></span> {article.comment_count}
             </dt>
             <dt className="uk-text-meta uk-margin-small-top uk-text-normal">
               <span uk-icon="heart"></span> {article.votes}
             </dt>
-          </dt></dl>
+          </div></dl>
         </div>
       </div>
     </Link>

@@ -2,8 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { fetchTopics } from "../api/topics";
 
-function ArticlesNav({ currentTopic, setCurrentTopic, setIsLoading }) {
+function ArticlesNav() {
   const [topics, setTopics] = useState([]);
+  const [currentTopic, setCurrentTopic] = useState("all");
 
   //fetch topics
   useEffect(() => {
@@ -14,11 +15,13 @@ function ArticlesNav({ currentTopic, setCurrentTopic, setIsLoading }) {
 
   //setting current topic
   const { topic } = useParams();
-  setCurrentTopic(() => {
-    if (!topic) return "all";
-    return topic;
-  });
-
+  useEffect(() => {
+    setCurrentTopic(() => {
+      if (!topic) return "all";
+      return topic;
+    });
+  }, [topic]);
+  
   //adding active styling to nav items
   const activeClass = (current) => {
     if (currentTopic === current) return "uk-active";

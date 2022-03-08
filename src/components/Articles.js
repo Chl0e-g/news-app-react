@@ -1,16 +1,13 @@
-import ArticlesList from "./ArticlesList"
-import ArticlesNav from "./ArticlesNav"
-import {useState} from "react"
+import ArticlesList from "./ArticlesList";
+import ArticlesNav from "./ArticlesNav";
 
 function Articles() {
-    const [currentTopic, setCurrentTopic] = useState('all')
-
-    return (
-        <>
-        <ArticlesNav currentTopic={currentTopic} setCurrentTopic={setCurrentTopic} />
-        <ArticlesList/>
-        </>
-    )
+  return (
+    <>
+      <ArticlesNav />
+      <ArticlesList />
+    </>
+  );
 }
 
-export default Articles
+export default Articles;
