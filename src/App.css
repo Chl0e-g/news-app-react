@@ -20,6 +20,11 @@
     line-height: 1.8;
 }
 
+/* reduce text line-height */
+.reduce-line-height {
+    line-height: 0;
+}
+
 /* custom avatar icons */
 .avatar {
     height: 40px;
