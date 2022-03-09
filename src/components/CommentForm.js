@@ -1,28 +1,65 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import { postComment } from "../api/comments";
 
-function CommentForm({ articleId, setCommentPosted}) {
+function CommentForm({ articleId, setCommentPosted }) {
+  //submit button text
+  const normalButtonText = <span>Submit</span>;
+  const loadingButtonText = <div uk-spinner="ratio: 0.7"></div>;
+  const successButtonText = <span uk-icon="check"></span>;
+  const failureButtonText = <span uk-icon="warning">Try again</span>;
+
+  //state and context
   const [commentText, setCommentText] = useState("");
-  const [commentPosting, setCommentPosting] = useState(false)
+  const [buttonText, setButtonText] = useState(normalButtonText);
+  const [buttonEnabled, setButtonEnabled] = useState(false);
   const { loggedInUser } = useContext(UserContext);
+
+  //submit button enabled/disabled styling
+  const enabledButton = (
+    <button className="uk-button primary-colour-background">
+      {buttonText}
+    </button>
+  );
+  const disabledButton = (
+    <button className="uk-button" disabled uk-tooltip="Type comment to submit">
+      {buttonText}
+    </button>
+  );
 
   //handle typing in form
   const handleChange = (e) => {
     setCommentText(e.target.value);
+    if (e.target.value.length > 0) {
+      setButtonEnabled(true);
+    } else {
+      setButtonEnabled(false);
+    }
   };
 
   //handle form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    setCommentPosting(true)
+    setButtonText(loadingButtonText);
     const commentData = { username: loggedInUser.username, body: commentText };
     //api call
-    postComment(articleId, commentData).then(()=>{
-        setCommentPosted((curr) => curr + 1)
-        setCommentPosting(false)
-    }).catch(() => {
-    });
+    postComment(articleId, commentData)
+      .then(() => {
+        setCommentPosted((curr) => curr + 1);
+        setButtonText(successButtonText);
+        setCommentText("");
+        setTimeout(() => {
+          setButtonText(normalButtonText);
+          setButtonEnabled(false);
+        }, 1000);
+      })
+      .catch((err) => {
+        console.log(err);
+        setButtonText(failureButtonText);
+        setTimeout(() => {
+          setButtonText(normalButtonText);
+        }, 3000);
+      });
   };
 
   return (
@@ -36,7 +73,7 @@ function CommentForm({ articleId, setCommentPosted}) {
           value={commentText}
           onChange={handleChange}
         ></textarea>
-        <button className="uk-button primary-colour-background">{commentPosting ? (<div uk-spinner="ratio: 0.7"></div>) : (<span>Submit</span>)}</button>
+        {buttonEnabled ? enabledButton : disabledButton}
       </fieldset>
     </form>
   );

@@ -12,10 +12,13 @@ function CommentList() {
 
   //fetch comments
   useEffect(() => {
-    setIsLoading(true);
+      setIsLoading(true)
     fetchComments(articleId).then((commentData) => {
       const sortedComments = commentData.sort((a, b) => {
-          return new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf()});
+        return (
+          new Date(b.created_at).valueOf() - new Date(a.created_at).valueOf()
+        );
+      });
       setComments(sortedComments);
       setIsLoading(false);
     });
@@ -24,18 +27,17 @@ function CommentList() {
   return (
     <div className="uk-margin-bottom">
       <h3>Comments</h3>
-      {isLoading ? (
-        <div uk-spinner="true"></div>
-      ) : (
-        <>
-          <CommentForm articleId={articleId} setCommentPosted={setCommentPosted} isLoading={isLoading}/>
-          {comments.map((comment) => {
-            return (
-              <CommentListItem comment={comment} key={comment.comment_id} />
-            );
-          })}
-        </>
-      )}
+      <CommentForm
+        articleId={articleId}
+        setCommentPosted={setCommentPosted}
+        isLoading={isLoading}
+      />
+      {isLoading ? <div uk-spinner="true"></div> : null}
+      <>
+        {comments.map((comment) => {
+          return <CommentListItem comment={comment} key={comment.comment_id} />;
+        })}
+      </>
     </div>
   );
 }
