@@ -46,3 +46,8 @@
 .uk-textarea:focus {
     border-color:#f66539;
 }
+
+/* custom submit button size */ 
+.uk-button {
+    width: 103px;
+}

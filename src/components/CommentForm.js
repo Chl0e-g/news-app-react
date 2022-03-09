@@ -17,12 +17,12 @@ function CommentForm({ articleId, setCommentPosted }) {
 
   //submit button enabled/disabled styling
   const enabledButton = (
-    <button className="uk-button primary-colour-background">
+    <button className="uk-button uk-display-block primary-colour-background">
       {buttonText}
     </button>
   );
   const disabledButton = (
-    <button className="uk-button" disabled uk-tooltip="Type comment to submit">
+    <button className="uk-button uk-display-block" disabled uk-tooltip="Type comment to submit">
       {buttonText}
     </button>
   );
@@ -54,7 +54,6 @@ function CommentForm({ articleId, setCommentPosted }) {
         }, 1000);
       })
       .catch((err) => {
-        console.log(err);
         setButtonText(failureButtonText);
         setTimeout(() => {
           setButtonText(normalButtonText);

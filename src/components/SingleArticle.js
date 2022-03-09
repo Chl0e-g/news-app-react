@@ -62,7 +62,7 @@ function SingleArticle() {
                   <img
                     src={author.avatar_url}
                     alt={author.username}
-                    className="uk-border-circle avatar"
+                    className="uk-border-circle uk-margin-small-right avatar"
                   />
                   Written by {article.author}
                 </dt>
