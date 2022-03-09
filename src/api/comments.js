@@ -6,3 +6,8 @@ export const fetchComments = async (articleId) => {
   } = await api.get(`/articles/${articleId}/comments`);
   return comments;
 };
+
+export const postComment = async (articleId, comment) => {
+    await api.post(`/articles/${articleId}/comments`, comment)
+    return
+}

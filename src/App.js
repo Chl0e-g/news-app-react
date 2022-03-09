@@ -1,19 +1,23 @@
 import "./App.css";
+import { useState, useContext } from "react";
 import { Routes, Route, useParams } from "react-router-dom";
 import Header from "./components/Header";
-import ArticlesNav from "./components/ArticlesNav";
 import ArticlesList from "./components/ArticlesList";
 import SingleArticle from "./components/SingleArticle";
+import {UserContext} from "./context/UserContext";
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<ArticlesList />} />
-        <Route path="topics/:topic" element={<ArticlesList />} />
-        <Route path="article/:articleId" element={<SingleArticle />} />
-      </Routes>
+      <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<ArticlesList />} />
+          <Route path="topics/:topic" element={<ArticlesList />} />
+          <Route path="article/:articleId" element={<SingleArticle />} />
+        </Routes>
+      </UserContext.Provider>
     </>
   );
 }
