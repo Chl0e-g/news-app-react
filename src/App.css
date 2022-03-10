@@ -4,11 +4,11 @@
 
 /* custom colours */
 .primary-colour-text {
-    color: #f66539
+    color: #ff791f
 }
 .primary-colour-background {
     color: #F6F9F1;
-    background-color: #f66539;
+    background-color: #ff791f;
 }
 .secondary-colour-background {
     background-color: #F6F9F1;
@@ -35,16 +35,16 @@
 /* custom like button active state */
 .active-button {
     color: #F6F9F1;
-    background-color: #f66539;
+    background-color: #ff791f;
 }
 .active-button:hover {
     color: #F6F9F1;
-    background-color: #f66539;
+    background-color: #ff791f;
 }
 
 /* custom text input focus state */
 .uk-textarea:focus {
-    border-color:#f66539;
+    border-color:#ff791f;
 }
 
 /* custom submit button size */ 

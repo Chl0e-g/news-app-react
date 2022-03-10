@@ -8,7 +8,7 @@ function Header() {
     fetchUserByUsername("tickle122").then((user) => {
       setLoggedInUser(user);
     });
-  }, []);
+  }, [setLoggedInUser]);
 
   return (
     <header
