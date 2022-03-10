@@ -1,4 +1,15 @@
+import { useContext, useEffect } from "react";
+import { UserContext } from "../context/UserContext";
+import { fetchUserByUsername } from "../api/users";
+
 function Header() {
+  const { setLoggedInUser } = useContext(UserContext);
+  useEffect(() => {
+    fetchUserByUsername("tickle122").then((user) => {
+      setLoggedInUser(user);
+    });
+  }, []);
+
   return (
     <header
       uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky"

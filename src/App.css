@@ -41,3 +41,13 @@
     color: #F6F9F1;
     background-color: #f66539;
 }
+
+/* custom text input focus state */
+.uk-textarea:focus {
+    border-color:#f66539;
+}
+
+/* custom submit button size */ 
+.uk-button {
+    width: 140px;
+}
