@@ -66,3 +66,22 @@
     margin-top: 8px;
 }
 
+/* custom mobile nav text & button colours */
+.uk-offcanvas-bar a {
+    color: #666565
+}
+.uk-offcanvas-bar .uk-active a {
+    color: #ff791f;
+}
+.uk-offcanvas-bar a:hover {
+    color: #ff791f;
+}
+.menu-button {
+    z-index: 1
+}
+.menu-button:hover {
+    background-color: #ff791f;
+}
+.uk-offcanvas-bar .uk-icon-button {
+    color: #ff791f;
+}
