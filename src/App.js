@@ -1,6 +1,6 @@
 import "./App.css";
-import { useState, useContext } from "react";
-import { Routes, Route, useParams } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import ArticlesList from "./components/ArticlesList";
 import SingleArticle from "./components/SingleArticle";
