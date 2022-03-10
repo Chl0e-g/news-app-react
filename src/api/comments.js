@@ -11,3 +11,8 @@ export const postComment = async (articleId, comment) => {
     await api.post(`/articles/${articleId}/comments`, comment)
     return
 }
+
+export const deleteComment = async (commentId) => {
+  await api.delete(`/comments/${commentId}`)
+  return
+}
