@@ -45,7 +45,7 @@ function CommentForm({ articleId, setCommentPosted }) {
     //api call
     postComment(articleId, commentData)
       .then(() => {
-        setCommentPosted((curr) => curr + 1);
+        setCommentPosted((curr) => curr + 1); //triggers comments fetch in CommentList
         setButtonText(successButtonText);
         setCommentText("");
         setTimeout(() => {
@@ -53,7 +53,7 @@ function CommentForm({ articleId, setCommentPosted }) {
           setButtonEnabled(false);
         }, 1000);
       })
-      .catch((err) => {
+      .catch(() => {
         setButtonText(failureButtonText);
         setTimeout(() => {
           setButtonText(normalButtonText);
