@@ -34,8 +34,7 @@ function CommentListItem({ comment, setComments }) {
       return filteredComments;
     });
     //api call
-    deleteComment(comment.comment_id).catch((err) => {
-      console.log(err);
+    deleteComment(comment.comment_id).catch(() => {
       //adding comment back if api call unsuccessful
       setComments((currentComments) => {
         const newComments = [...currentComments];
