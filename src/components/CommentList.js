@@ -12,7 +12,7 @@ function CommentList() {
 
   //fetch comments
   useEffect(() => {
-      setIsLoading(true)
+    setIsLoading(true);
     fetchComments(articleId).then((commentData) => {
       const sortedComments = commentData.sort((a, b) => {
         return (
@@ -35,7 +35,13 @@ function CommentList() {
       {isLoading ? <div uk-spinner="true"></div> : null}
       <>
         {comments.map((comment) => {
-          return <CommentListItem comment={comment} key={comment.comment_id} />;
+          return (
+            <CommentListItem
+              comment={comment}
+              setComments={setComments}
+              key={comment.comment_id}
+            />
+          );
         })}
       </>
     </div>
