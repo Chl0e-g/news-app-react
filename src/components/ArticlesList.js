@@ -76,7 +76,6 @@ function ArticlesList() {
           )}
         </div>
       </main>
-      )
     </>
   );
 }
