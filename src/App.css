@@ -42,12 +42,17 @@
     background-color: #ff791f;
 }
 
-/* custom text input focus state */
-.uk-textarea:focus {
+/* custom form field focus state */
+.uk-textarea:focus, .uk-select:focus {
     border-color:#ff791f;
 }
 
 /* custom submit button size */ 
 .uk-button {
     width: 140px;
+}
+
+/* custom form label top margin */
+.form-label-top-margin {
+    margin-top: 8px;
 }
