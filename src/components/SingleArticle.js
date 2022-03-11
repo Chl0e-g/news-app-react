@@ -1,6 +1,6 @@
 import { fetchArticle, patchArticleVotes } from "../api/articles";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { formatDate } from "../utils/formatDate";
 import { fetchUserByUsername } from "../api/users";
 import ArticlesNav from "./ArticlesNav";
@@ -61,9 +61,11 @@ function SingleArticle() {
             <>
               <main className="uk-container uk-container-small uk-margin-large-top uk-margin-large-bottom">
                 <article className="uk-article">
-                  <div className="uk-text-meta uk-text-uppercase primary-colour-text">
-                    {article.topic}
-                  </div>
+                  <Link to={`/topics/${article.topic}`}>
+                    <div className="uk-text-meta uk-text-uppercase primary-colour-text">
+                      {article.topic}
+                    </div>
+                  </Link>
                   <h2 className="uk-article-title uk-margin-small-top">
                     {article.title}
                   </h2>
