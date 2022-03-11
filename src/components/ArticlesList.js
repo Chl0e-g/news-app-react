@@ -5,12 +5,14 @@ import ArticleListItem from "./ArticleListItem";
 import TrendingArticle from "./TrendingArticle";
 import ArticlesNav from "./ArticlesNav";
 import SortDropDown from "./SortDropDown";
+import Error from "./Error";
 
 function ArticlesList() {
   const [isLoading, setIsLoading] = useState(true);
   const [articles, setArticles] = useState([]);
   const [trendingArticle, setTrendingArticle] = useState({});
   const [sortBy, setSortBy] = useState("Most likes");
+  const [error, setError] = useState(false);
   const { topic } = useParams();
 
   //fetch article data
@@ -22,33 +24,39 @@ function ArticlesList() {
       "Newest first": { sort_by: "created_at", order: "desc" },
       "Oldest first": { sort_by: "created_at", order: "asc" },
     };
-
+    setError(false)
     setIsLoading(true);
-    fetchArticles(topic, sortByQuery[sortBy]).then((articlesData) => {
-      setArticles(articlesData);
+    fetchArticles(topic, sortByQuery[sortBy])
+      .then((articlesData) => {
+        setArticles(articlesData);
 
-      if (!topic) {
-        //set trending article
-        const articlesByVotes = [...articlesData].sort(
-          (a, b) => b.votes - a.votes
-        );
-        setTrendingArticle(articlesByVotes.at(0));
-        const trendingArticleId = articlesByVotes.at(0).article_id;
+        if (!topic) {
+          //set trending article
+          const articlesByVotes = [...articlesData].sort(
+            (a, b) => b.votes - a.votes
+          );
+          setTrendingArticle(articlesByVotes.at(0));
+          const trendingArticleId = articlesByVotes.at(0).article_id;
 
-        //remove trending article from rest of articles data
-        setArticles((currentArticles) => {
-          const filteredArticles = [...currentArticles].filter((article) => {
-            if (article.article_id !== trendingArticleId) return article;
-            else return null;
+          //remove trending article from rest of articles data
+          setArticles((currentArticles) => {
+            const filteredArticles = [...currentArticles].filter((article) => {
+              if (article.article_id !== trendingArticleId) return article;
+              else return null;
+            });
+            return filteredArticles;
           });
-          return filteredArticles;
-        });
-      }
-      setIsLoading(false);
-    });
+        }
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response);
+      });
   }, [topic, sortBy]);
 
-  return (
+  return error ? (
+    <Error error={error}/>
+  ) : (
     <>
       <ArticlesNav />
       <main>
@@ -60,7 +68,10 @@ function ArticlesList() {
           ) : null}
           <SortDropDown sortBy={sortBy} setSortBy={setSortBy} />
           {isLoading ? (
-            <div uk-spinner="ratio: 3" className="uk-position-center uk-margin-remove"></div>
+            <div
+              uk-spinner="ratio: 3"
+              className="uk-position-center uk-margin-remove"
+            ></div>
           ) : (
             <>
               {!topic ? (
