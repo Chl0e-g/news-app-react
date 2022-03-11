@@ -59,8 +59,8 @@ function ArticlesList() {
   ) : (
     <>
       <ArticlesNav />
-      <main>
-        <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-small-top ">
+      <main className="uk-margin-large-bottom">
+        <div className="uk-flex uk-flex-column uk-flex-middle uk-margin-medium-top ">
           {topic ? (
             <h2 className="uk-text-uppercase uk-text-lead uk-text-light">
               {topic}

@@ -59,7 +59,7 @@ function SingleArticle() {
             <div uk-spinner="ratio: 3" className="uk-position-center"></div>
           ) : (
             <>
-              <main className="uk-container uk-container-small uk-margin-large-top">
+              <main className="uk-container uk-container-small uk-margin-large-top uk-margin-large-bottom">
                 <article className="uk-article">
                   <div className="uk-text-meta uk-text-uppercase primary-colour-text">
                     {article.topic}

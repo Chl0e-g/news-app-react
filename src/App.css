@@ -29,7 +29,15 @@
 .avatar {
     height: 40px;
     width: 40px;
-    object-fit: fill;
+    object-fit: cover;
+}
+
+/* custom nav avatar icon */
+.nav-avatar {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border: 3px #ff791f solid;
 }
 
 /* custom like button active state */
