@@ -85,3 +85,11 @@
 .uk-offcanvas-bar .uk-icon-button {
     color: #ff791f;
 }
+
+/* custom link style */
+a .uk-text-lead {
+    color: #ff791f;
+}
+a:hover {
+    text-decoration: none;
+}
