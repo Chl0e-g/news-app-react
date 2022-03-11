@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { fetchUserByUsername } from "../api/users";
+import { Link } from "react-router-dom";
 
 function Header() {
   const { setLoggedInUser } = useContext(UserContext);
@@ -16,9 +17,11 @@ function Header() {
       className="secondary-colour-background uk-padding-remove"
     >
       <div className="uk-navbar-item ">
-        <h1 className="uk-navbar-nav uk-text-default uk-text-uppercase primary-colour-text">
-          News & Views
-        </h1>
+        <Link to="/">
+          <h1 className="uk-navbar-nav uk-text-default uk-text-uppercase primary-colour-text">
+            News & Views
+          </h1>
+        </Link>
       </div>
     </header>
   );
