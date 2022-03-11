@@ -85,6 +85,8 @@
     color: #ff791f;
 }
 .menu-button {
+    width: 48px;
+    height: 48px;
     z-index: 1
 }
 .menu-button:hover {
